@@ -1,5 +1,9 @@
 ---
-![APOS Banner](https://capsule-render.vercel.app/api?type=rect&color=gradient&text=APOS&fontSize=40)
+![APOS Banner](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=220&section=header&text=APOS&fontSize=50&fontAlignY=38&desc=AI%20Personal%20Operating%20System&descAlignY=60&animation=fadeIn)
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?size=24&duration=3000&color=36BCF7&center=true&vCenter=true&width=700&lines=Your+AI+Decision+Engine;Not+Just+Tasks+—+A+Thinking+System;Build+Focus+Achieve+Goals" />
+</p>
 ---
 
 # 🧠 APOS — AI Personal Operating System
