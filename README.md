@@ -1,3 +1,7 @@
+---
+![APOS Banner](https://capsule-render.vercel.app/api?type=rect&color=gradient&text=APOS&fontSize=40)
+---
+
 # 🧠 APOS — AI Personal Operating System
 
 > A system that doesn't just track your tasks — it decides what you should do next.
