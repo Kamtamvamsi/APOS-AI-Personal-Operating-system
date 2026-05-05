@@ -55,46 +55,6 @@ APOS combines:
 
 ---
 
-## 🔥 Features (Planned Phases)
-
-### Phase 1 — Foundation
-
-* User authentication
-* Dashboard setup
-
-### Phase 2 — Goals & Tasks
-
-* Define goals
-* Manage tasks
-
-### Phase 3 — Activity Tracking
-
-* Track daily actions
-* Store behavioral data
-
-### Phase 4 — Insight Engine
-
-* Analyze productivity patterns
-
-### Phase 5 — Recommendation Engine
-
-* AI suggests next best actions
-
-### Phase 6 — Memory System (RAG)
-
-* Context-aware intelligence
-
-### Phase 7 — Advanced Intelligence
-
-* Predict outcomes
-* Strategy optimization
-
-### Phase 8 — Deployment
-
-* Production-ready system
-
----
-
 ## 📂 Folder Structure
 
 ```
@@ -158,10 +118,6 @@ It demonstrates:
 * Real-world product architecture
 
 ---
-
-## ⚡ Getting Started (Coming Soon)
-
-Setup instructions will be added in Phase 1.
 
 ---
 
