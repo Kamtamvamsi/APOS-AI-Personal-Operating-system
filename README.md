@@ -1,5 +1,5 @@
 ---
-https://capsule-render.vercel.app/api?type=rect&color=gradient&text=APOS&fontSize=40
+![APOS Banner](https://capsule-render.vercel.app/api?type=rect&color=gradient&text=APOS&fontSize=40)
 ---
 
 # 🧠 APOS — AI Personal Operating System
