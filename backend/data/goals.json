@@ -1,0 +1,36 @@
+[
+    {
+        "goal_id": "8ea522e6-58d8-4349-8a72-3cdc4ae8fd85",
+        "user_email": "admin",
+        "title": "drink 3 water",
+        "tasks": [
+            {
+                "task_id": "6046b2c6-d5bf-4aec-9b82-defcd1e4a433",
+                "title": "ertyuiuytr",
+                "completed": false
+            }
+        ]
+    },
+    {
+        "goal_id": "bd88935c-dfe7-405a-b6ea-e814b58e2fbd",
+        "user_email": "admin",
+        "title": "1234567890",
+        "tasks": [
+            {
+                "task_id": "71a1a724-0c75-4619-8d03-5eb9c43fb9de",
+                "title": "234567890987654",
+                "completed": false
+            },
+            {
+                "task_id": "617e3b2b-7bbf-4803-9931-a9b1a668d73d",
+                "title": "uytxcgihohigxfghj",
+                "completed": false
+            },
+            {
+                "task_id": "dde450f7-fcb5-472c-8f02-43ad5227a48e",
+                "title": "hvjkjkjvcg",
+                "completed": false
+            }
+        ]
+    }
+]

@@ -1,0 +1,17 @@
+{
+  "2026-05-05": {
+    "tasks": [
+      {
+        "task_id": "1",
+        "title": "Workout",
+        "status": "completed",
+        "actual_duration": 1800
+      }
+    ],
+    "summary": {
+      "completion_rate": 100,
+      "total_time": 1800
+    },
+    "reflection": "Good focus today"
+  }
+}
