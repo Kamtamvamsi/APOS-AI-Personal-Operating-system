@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "APOS",
@@ -14,6 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-gradient-to-b from-slate-50 to-blue-50 text-slate-900">
         {children}
+        <Analytics />
       </body>
     </html>
   );
