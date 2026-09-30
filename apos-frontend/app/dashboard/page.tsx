@@ -9,6 +9,9 @@ interface Task {
   task_id: string;
   title: string;
   status: string;
+  priority?: "high" | "medium" | "low";
+  due_date?: string | null;
+  estimated_minutes?: number;
 }
 
 interface Goal {
@@ -134,34 +137,68 @@ export default function Dashboard() {
   // FETCH ANALYTICS
   // --------------------------------------------------
 
-  const fetchAnalytics = async (email: string) => {
-    try {
-      const res = await fetch(
-        `http://localhost:5000/dashboard-analytics?user_email=${encodeURIComponent(
-          email
-        )}`
-      );
+const fetchAnalytics = async (email: string) => {
+  try {
+    const response = await fetch(
+      `http://localhost:5000/dashboard-analytics?user_email=${encodeURIComponent(
+        email
+      )}`
+    );
 
-      if (!res.ok) return;
-
-      const data = await res.json();
-
-      setStreak(data.streak || 0);
-      setSkippedTasks(data.skipped_tasks || 0);
-      setWeeklyData(
-        data.weekly_activity || weeklyData
-      );
-    } catch (error) {
-      /*
-        Analytics endpoint can be added later.
-
-        We intentionally don't invent historical
-        behavioral data on the frontend.
-      */
-
-      console.log("Analytics endpoint not available yet.");
+    if (!response.ok) {
+      return;
     }
-  };
+
+    const data = await response.json();
+
+    setStreak(data.streak || 0);
+
+    setSkippedTasks(
+      data.skipped_tasks || 0
+    );
+
+    if (data.weekly_activity) {
+      setWeeklyData(
+        data.weekly_activity
+      );
+    }
+
+  } catch (error) {
+    console.error(
+      "Failed to fetch analytics:",
+      error
+    );
+  }
+};
+
+  // const fetchAnalytics = async (email: string) => {
+  //   try {
+  //     const res = await fetch(
+  //       `http://localhost:5000/dashboard-analytics?user_email=${encodeURIComponent(
+  //         email
+  //       )}`
+  //     );
+
+  //     if (!res.ok) return;
+
+  //     const data = await res.json();
+
+  //     setStreak(data.streak || 0);
+  //     setSkippedTasks(data.skipped_tasks || 0);
+  //     setWeeklyData(
+  //       data.weekly_activity || weeklyData
+  //     );
+  //   } catch (error) {
+  //     /*
+  //       Analytics endpoint can be added later.
+
+  //       We intentionally don't invent historical
+  //       behavioral data on the frontend.
+  //     */
+
+  //     console.log("Analytics endpoint not available yet.");
+  //   }
+  // };
 
   // --------------------------------------------------
   // ADD GOAL
@@ -200,6 +237,9 @@ export default function Dashboard() {
         {
           goal_id: goalId,
           title: taskInput[goalId],
+          priority: "medium",
+          due_date: null,
+          estimated_minutes: null,
         }
       );
 
@@ -219,24 +259,68 @@ export default function Dashboard() {
   // --------------------------------------------------
 
   const startTask = async (task: Task) => {
-    try {
-      await fetch(
-        "http://localhost:5000/start-task",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(task),
-        }
-      );
+  try {
+    const response = await fetch(
+      "http://localhost:5000/start-task",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          task_id: task.task_id,
+          title: task.title,
+        }),
+      }
+    );
 
-      setActiveTask(task);
-      setTimer(0);
-    } catch (error) {
-      console.error("Failed to start task:", error);
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error(
+        "Failed to start task:",
+        data
+      );
+      return;
     }
-  };
+
+    setActiveTask(task);
+    setTimer(0);
+
+    if (user?.email) {
+      await fetchGoals(user.email);
+    }
+
+    await fetchToday();
+    await fetchAnalytics(user.email);
+
+  } catch (error) {
+    console.error(
+      "Failed to start task:",
+      error
+    );
+  }
+};
+  // const startTask = async (task: Task) => {
+  //   try {
+  //     await fetch(
+  //       "http://localhost:5000/start-task",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(task),
+  //       }
+  //     );
+
+  //     setActiveTask(task);
+  //     setTimer(0);
+  //   } catch (error) {
+  //     console.error("Failed to start task:", error);
+  //   }
+  // };
+
 
   // --------------------------------------------------
   // COMPLETE TASK
